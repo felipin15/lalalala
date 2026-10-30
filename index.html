@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Efeito Doppler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Efeito Doppler</h1>
+        <p>Insira os dados para descobrir a frequência percebida pelo observador.</p>
+
+        <form id="dopplerForm">
+            <!-- Frequência da Fonte -->
+            <div class="form-group">
+                <label for="frequenciaFonte">Frequência da Fonte ($f_0$) [Hz]:</label>
+                <input type="number" id="frequenciaFonte" required min="0" step="any" placeholder="Ex: 500">
+            </div>
+
+            <!-- Velocidade do Som -->
+            <div class="form-group">
+                <label for="velocidadeSom">Velocidade do Som ($v$) [m/s]:</label>
+                <input type="number" id="velocidadeSom" required min="0" step="any" value="340" placeholder="Ex: 340">
+            </div>
+
+            <!-- Velocidade do Observador -->
+            <div class="form-group">
+                <label for="velocidadeObservador">Velocidade do Observador ($v_o$) [m/s]:</label>
+                <div class="input-group">
+                    <input type="number" id="velocidadeObservador" required min="0" step="any" placeholder="Ex: 0">
+                    <select id="sentidoObservador">
+                        <option value="aproxima">Se aproxima da fonte</option>
+                        <option value="afasta">Se afasta da fonte</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Velocidade da Fonte -->
+            <div class="form-group">
+                <label for="velocidadeFonte">Velocidade da Fonte ($v_f$) [m/s]:</label>
+                <div class="input-group">
+                    <input type="number" id="velocidadeFonte" required min="0" step="any" placeholder="Ex: 20">
+                    <select id="sentidoFonte">
+                        <option value="aproxima">Se aproxima do observador</option>
+                        <option value="afasta">Se afasta do observador</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="button" onclick="calcularDoppler()">Calcular Frequência Percebida</button>
+        </form>
+
+        <div id="resultado" class="resultado hidden">
+            <h2>Resultado:</h2>
+            <p>Frequência Percebida ($f$): <strong id="freqPercebida">0</strong> Hz</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
